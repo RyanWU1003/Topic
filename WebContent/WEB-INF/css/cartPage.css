@@ -1,0 +1,137 @@
+.mycart{
+    margin: 80px auto ;
+    
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart-info p{
+    vertical-align: middle;
+}
+
+.img-container{
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+img{
+    max-height: 100%;
+}
+th{
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background-color: #1dc038;
+    font-weight: normal;
+    line-height: 50px;
+    font-size: 25px;
+}
+#cartTable td{
+    padding: 30px 5px;  
+}
+
+#delAction {
+    text-align: center;
+    font-size: 25px;
+    
+}
+#delAction button {
+    height: 32px;
+    width: 32px;
+    padding: 0;
+    margin: 0;
+    
+}
+.fa-trash{
+    color: rgb(231, 231, 231);
+}
+
+td input{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+.btnninput{
+    height: 31.5px;
+    width: 102px;
+    min-width: 101px;
+    border: rgb(211, 211, 211) 0.5px solid;
+}
+.qtyAdd ,.qtyMinus{
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    background-color: rgb(204, 204, 204);
+    font-weight: normal;
+    border: none;
+    color: gray;
+    
+}
+.total-price{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.total-price table{
+    border-top:3px solid #1dc038;
+    width: 100%;
+    max-width: 350px;
+}
+.total-price table tr td{
+    height: 80px;
+}
+td:last-child{
+    text-align: right;
+}
+th:last-child{
+    text-align: right;
+}
+.check{
+    outline:none;
+    border: none;
+    width: 200px;
+    height: 50px;
+}
+
+.check:hover,.check:active{
+    background-color:  #1dc038;
+    color: white;
+}
+a,a:visited{
+    text-decoration: none;
+    color: teal;
+}
+a:hover,a:active{
+    text-decoration: none ;
+    
+}
+button{
+	border:none;
+}
+#back2shop{
+	background-color:  #1dc038;
+	color: white;
+}
+#backToshop{
+	background-color:  #1dc038;
+	width:100%;
+	color: white;
+}
+.page-wrapper{
+	min-width:100%;
+}
+@media only screen and (max-width:600px){
+    
+}

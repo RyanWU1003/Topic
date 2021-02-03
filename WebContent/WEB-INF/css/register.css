@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.register{
+            width: 600px;
+            height: 300px;
+            padding: 10px;
+            margin: 10px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+}
+.register h1{
+            /* float: left; */
+            font-size: 40px;
+            border-bottom: 6px solid rgb(39, 201, 52);
+            margin-bottom: 30px;
+            padding: 10px 0;
+        }
+
+.register_box{
+    width: 200px;
+    padding: 50px;
+
+}
+.text-box{
+            width: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            padding: 8px 0;
+            margin: 8px 0;
+            border-bottom: 2px solid #4caf50;
+        }
+ .text-box td{
+        width: 100px;
+ } 
+ .text-box #error{
+    width: 500px;
+    padding: 2px;
+    border: 2px;
+    font-size: 5px
+ }
+ #btn-submit{
+            background-color: rgb(39, 201, 52);
+            color: white;
+        }
+#btn-submit:hover{
+            background-color: rgb(26, 161, 38);
+        }      
