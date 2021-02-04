@@ -11,6 +11,8 @@
 	<script src="${path}/css/javascripts/jquery-3.5.1.min.js"/></script>
 </head>
 <body>
+
+<div class="member">
 <c:url value="select_member" var="memberUrl" />
 <form method="post" action="${memberUrl} }">
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -22,39 +24,39 @@
 <c:choose>
 <c:when test="${selection == 'all' or empty selection}">
 <c:forEach var="member" items="${memberList }">
-<table>會員資料
+<table class="member-box">會員資料
 <!-- <a href="updatePage">修改</a> -->
-<tr>
+<tr class="text-box">
 <th>帳號</th>
 <th>${member.account}</th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>姓名</th>
 <th>${member.userName}</th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>信箱</th>
 <th>${member.email}</th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>電話</th>
 <th>${member.phone}</th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>地址</th>
 <th>${member.address}</th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>生日</th>
 <th><fmt:formatDate value="${member.birthday}" pattern="yyyy/MM/dd"/> </th><!-- ${member.birthday} -->
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>性別</th>
 <th>${member.gender}</th>
 </tr>
@@ -74,34 +76,34 @@
 
 </script>
 
-<table>修改會員資料
+<table class="member">修改會員資料
 
-<tr>
+<tr class="text-box">
 <th>姓名</th>
 <th><input type="text" name="username" id="username" value="${member.userName}"></th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>信箱</th>
 <th><input type="text" name="email" id="email" value="${member.email}"></th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>電話</th>
 <th><input type="text" name="phone" id="phone" value="${member.phone}"></th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>地址</th>
 <th><input type="text" name="address" id="address" value="${member.address}"></th>
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>生日</th>
-<th><input type="text" name="birthday" id="birthday" value="<fmt:formatDate value="${member.birthday}" pattern="yyyy/MM/dd"/>"></th><!-- ${member.birthday} -->
+<th><input type="text" name="birthday" id="birthday" value="<fmt:formatDate value="${member.birthday}" pattern="yyyy-MM-dd"/>"></th><!-- ${member.birthday} -->
 </tr>
 
-<tr>
+<tr class="text-box">
 <th>性別</th>
 <th>
 	<input type="radio" id="gender1" name="gender" value="男" <c:if test="${member.gender=='男' }">checked="checked"</c:if> />
@@ -125,5 +127,7 @@
 <!-- <a href="update_member">會員資料修改</a> -->
 <a href="changepwd.jsp">更換密碼</a>
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+</div>
 </body>
 </html>

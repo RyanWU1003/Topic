@@ -24,22 +24,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	      .antMatchers("/home","/login","/register.jsp","/register.controller","/css/**",
 	    		  "/getAllProduct","/getProductDetail","/selectSpecies","/selectBrand").permitAll()
           
-	      .antMatchers("/addToCart","/loadMyCart","/goToCart","/member.jsp","/changepwd.jsp").hasAnyRole("USER")
+	      .antMatchers("/addToCart","/loadMyCart","/goToCart","/member.jsp","/changepwd.jsp","/select_member").hasAnyRole("USER")
 //			.anyRequest().authenticated()
 			.and()
 			
 		.formLogin()
-			.loginPage("/login.jsp")
+			.loginPage("/login")
 			.usernameParameter("account")
 			.loginProcessingUrl("/perform_login")
 			.defaultSuccessUrl("/gohome", true)
 			.failureUrl("/login?error")
 			.and()
 		.logout()
-			.logoutUrl("/perform_logout")
+			.logoutUrl("/perform_logout")		//perform_logout
 			.invalidateHttpSession(true)
 			.deleteCookies("JSESSIONID")
-			.logoutSuccessUrl("/home.jsp");
+			.logoutSuccessUrl("/gohome");
 		
 //		   http.csrf().disable(); 
 	}

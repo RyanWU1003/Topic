@@ -104,22 +104,15 @@
 	<header>
 
 
-
 		<a href="#" class="logo">Animal</a>
 		<ul class="navigation">
 
+		
 			<%
 			if ("anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 			%>
 
-			<a href="perform_logoin"><li>登入 <c:url
-						value="/perform_logoin" var="logoutUrl" />
-					<form method="post" action="${logoutUrl}">
-						<input type="hidden" value="Login" type="submit"> <input
-							type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-			</li></a>
+			<a href="perform_login"><li>登入 </li></a>
 			<a href="${path}/register.jsp"><li>註冊</li></a>
 			<%
 			}
@@ -128,15 +121,8 @@
 			<%
 			if (!"anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 			%>
-			<a href="perform_logout"><li>登出 <c:url
-						value="/perform_logout" var="logoutUrl" />
-					<form method="post" action="${logoutUrl}">
-						<input type="hidden" value="Logout" type="submit"> <input
-							type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-			</li></a>
-
+			<a href="logoutPage"><li>登出 </li></a>
+			<a href="select_member"><li>我的帳號</li></a>
 			<%
 			}
 			%>
@@ -144,6 +130,7 @@
 
 		</ul>
 	</header>
+	<%= SecurityContextHolder.getContext().getAuthentication().getName()%>
 	<section class="banner" id="banner"
 		style="background-image: url('/img/thum.jpg');">
 		<div class="content">
@@ -162,29 +149,15 @@
 			<%
 			if ("anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 			%>
-			<a class="btn-action" href="perform_logoin">
-				<button class="btn" id="login">
-					<c:url value="/perform_logout" var="logoutUrl" />
-					<form method="post" action="${logoutUrl}">
-						<input type="hidden" value="Logout" type="submit"> <input
-							type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-					登入/註冊<i class="fa fa-angle-double-right"></i>
+			<a class="btn-action" href="perform_login">
+				<button class="btn" id="login">登入/註冊<i class="fa fa-angle-double-right"></i>
 				</button>
 			</a>
 			<%
 			} else {
 			%>
-			<a class="btn-action" href="perform_logout">
-				<button class="btn" id="login">
-					<c:url value="/perform_logout" var="logoutUrl" />
-					<form method="post" action="${logoutUrl}">
-						<input type="hidden" value="Logout" type="submit"> <input
-							type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-					登出<i class="fa fa-angle-double-right"></i>
+			<a class="btn-action" href="logoutPage">
+				<button class="btn" id="login">登出<i class="fa fa-angle-double-right"></i>
 				</button>
 			</a>
 
