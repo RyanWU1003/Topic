@@ -385,9 +385,9 @@ if(account==null||account==""){
                 <a href="gomap?currpage=0"><li>地圖查詢</li></a>
                 <c:choose>
                 <c:when test="<%=status %>">
-                <a href="member.jsp" id="member"><li> <%= SecurityContextHolder.getContext().getAuthentication().getName() %>	
+                <a href="select_member" id="member"><li> <%= SecurityContextHolder.getContext().getAuthentication().getName() %>	
                     <ul class="memder-list">
-                        <a href="member.jsp" id="member"><li>會員專區</li></a>
+                        <a href="select_member" id="member"><li>會員專區</li></a>
                         <li>
                         <a class="btn-action" href="logoutPage">
 						<button class="btn" id="login">登出</button>
@@ -406,7 +406,7 @@ if(account==null||account==""){
             	<c:otherwise>
  						<form method="post" action="${logoutUrl}">
             		<a href="perform_login"><li>
-            		<c:url value="/perform_logoin" var="logoutUrl" />
+            		<c:url value="/perform_login" var="logoutUrl" />
 							<input value="登入" type="submit" id="login">  
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
  					</li></a>
