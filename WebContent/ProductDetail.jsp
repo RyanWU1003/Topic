@@ -404,14 +404,14 @@ if(account==null||account==""){
                 <a class="showMyCart"><li id="cart-con"><i class="fa fa-shopping-cart" ></i><span class="p-1" id="badge">0</span></li></a>
             	</c:when>
             	<c:otherwise>
+ 						<form method="post" action="${logoutUrl}">
             		<a href="perform_login"><li>
             		<c:url value="/perform_logoin" var="logoutUrl" />
- 						<form method="post" action="${logoutUrl}">
 							<input value="登入" type="submit" id="login">  
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
- 						</form> 
  					</li></a>
                 	<a href="register.jsp"><li>註冊</li></a>
+ 						</form> 
             	</c:otherwise>
             	</c:choose>
             </ul> 
