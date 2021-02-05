@@ -4,7 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>更換密碼</title>
+<c:set var="path" value="${pageContext.request.contextPath }"></c:set>
+<script src="css/javascripts/jquery-3.5.1.min.js"/></script>		<!-- ${path } -->
+
+<script >
+$(function(){
+	(".sendform").click(function(){
+		if($(`${checkpwd}`) == true){
+			 alert("更換成功");
+		}
+	})
+})
+
+</script>
+
 </head>
 <body>
 
@@ -25,7 +39,7 @@
 </table>
 
 <div>
-    <input type="submit" id="send" value="送出" />
+    <input class="sendform" type="submit" id="send" value="送出" />
 </div>
 
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

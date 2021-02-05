@@ -33,7 +33,7 @@
         <ul class="navbar-nav navbar-right">
           <li class="nav-item">
             <span>
-            <a class="nav-link active" aria-current="page" href="#">我的帳號</a>
+            <a class="nav-link active" aria-current="page" href="select_member">我的帳號</a>
            </span>
           </li>
           <li class="nav-item">

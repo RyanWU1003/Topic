@@ -165,7 +165,7 @@
 		</div>
 	</section>
 
-		<%=  SecurityContextHolder.getContext().getAuthentication().getName() %>
+<%-- 		<%=  SecurityContextHolder.getContext().getAuthentication().getName() %> --%>
 
 
 

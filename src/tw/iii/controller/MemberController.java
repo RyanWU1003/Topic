@@ -80,8 +80,9 @@ public class MemberController {
 			return "changepwd.jsp";
 		}
 		mbs.updatepassword(account, newpwd);
-		
+		m.addAttribute("checkpwd",check);
 		return "login.jsp";
+		
 	}
 	
 	//更新會員資料取得會員資料		
@@ -110,7 +111,6 @@ public class MemberController {
 		mbs.updateAll(account, username, email, phone, address, birthday, gender);
 		m.addAttribute("selection" ,"all");
 		m.addAttribute("memberList",mbs.select(account));
-		System.out.println("111111111111111");
 		return "member.jsp" ;		//member.jsp
 	}
 	
