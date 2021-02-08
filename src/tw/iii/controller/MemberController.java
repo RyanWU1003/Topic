@@ -5,17 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,16 +30,6 @@ public class MemberController {
 	private  BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	};
-//	@RequestMapping(path = "/perform_logout",method = RequestMethod.POST)
-//	public String logoutpage(HttpServletRequest request, HttpServletResponse response) {
-//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//		if(auth != null) {
-//			new SecurityContextLogoutHandler().logout(request, response, auth);
-//		}
-//		System.out.println("登出成功!!");
-//		return "index.jsp";
-//	}
-	
 	//顯示會員資料
 	@RequestMapping(path = "/select_member",method = RequestMethod.GET)
 	public String selectmember(Model m) {
@@ -81,6 +65,7 @@ public class MemberController {
 		}
 		mbs.updatepassword(account, newpwd);
 		m.addAttribute("checkpwd",check);
+		m.addAttribute("changsuccess","更改密碼成功，請重新登入");
 		return "login.jsp";
 		
 	}

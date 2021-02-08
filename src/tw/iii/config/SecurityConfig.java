@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	      .antMatchers("/home","/login","/register.jsp","/register.controller","/css/**",
 	    		  "/getAllProduct","/getProductDetail","/selectSpecies","/selectBrand").permitAll()
           
-	      .antMatchers("/addToCart","/loadMyCart","/goToCart","/member.jsp","/changepwd.jsp","/select_member","CreateEditor.jsp","Editor.jsp").hasAnyRole("USER")
+	      .antMatchers("/addToCart","/loadMyCart","/goToCart","/member.jsp","/changepwd.jsp","/select_member","CreateEditor.jsp","Editor.jsp","/gocreateeditor").hasAnyRole("USER")
 //			.anyRequest().authenticated()
 			.and()
 			
@@ -41,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.deleteCookies("JSESSIONID")
 			.logoutSuccessUrl("/gohome");
 		
-//		   http.csrf().disable(); 
+		   http.csrf().disable(); 
 	}
 	
 	@Bean 

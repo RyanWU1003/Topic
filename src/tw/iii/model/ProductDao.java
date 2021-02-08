@@ -18,6 +18,11 @@ public class ProductDao implements IproductDao {
 		this.sessionfactory = sessionfactory;
 	}
 
+	public Product getById(int productID) {
+		Session session=sessionfactory.getCurrentSession();
+		Product product =session.get(Product.class,productID);
+		return product;
+	}
 	
 	@Override
 	public Product insert(Product PD) {
@@ -47,18 +52,15 @@ public class ProductDao implements IproductDao {
 
 
 	@Override
-	public Product update(int productID, String productName, int stock, int price, String species,
-			String classification, String brand, String descripton, String img) {
+	public Product update(Product PD) {
 		Session session = sessionfactory.getCurrentSession();
-		Product product = session.get(Product.class, productID);
-
+		Product product = session.get(Product.class, PD.getProductID());
 		if (product != null) {
-			product.setProductName(productName);
-			product.setPrice(price);
-			product.setClassification(classification);
-			session.save(product);
-
+			session.update(product);
+		
 		}
+		
+
 		return product;
 	}
 
@@ -76,6 +78,16 @@ public class ProductDao implements IproductDao {
 		Query<Product> query = session.createQuery("from Product", Product.class);
 		return query.list();
 	}
+	
+
+	
+	@Override
+	public List<Product> selectnone(int stock) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Product> query = session.createQuery("from Product where  stock like ?1",Product.class);
+		query.setParameter(1,0);
+		return query.list();
+	}
 
 	@Override
 	public List<Product> selectbrand(String brand) {
@@ -84,7 +96,61 @@ public class ProductDao implements IproductDao {
 		query.setParameter(1,brand);
 		return query.list();
 	}
-
+	
+	@Override
+	public List<Product> selectAllOpen() {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Product> query = session.createQuery("from Product where  status like ?1",Product.class);
+		query.setParameter(1,"上架中");
+		return query.list();
+	}
+	
+	@Override
+	public List<Product> selectbrandOpen(String brand) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Product> query = session.createQuery("from Product where  status=?1 and brand=?2",Product.class);
+		query.setParameter(1,"上架中");
+		query.setParameter(2,brand);
+		return query.list();
+	}
+	
+	@Override
+	public List<Product> selectspeciesOpen(String species) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Product> query = session.createQuery("from Product where  status=?1 and species=?2",Product.class);
+		query.setParameter(1,"上架中");
+		query.setParameter(2,species);
+		return query.list();
+	}
+	
+	@Override
+	public List<Product> selectclassOpen(String classification) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Product> query = session.createQuery("from Product where  status=?1 and classification=?2",Product.class);
+		query.setParameter(1,"上架中");
+		query.setParameter(2,classification);
+		return query.list();
+	}
+	
+	
+	@Override
+	public List<Product> selectwhereOpen(int max, int min) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Product> query =session.createQuery("from Product where status=?1 and price between :xxx and :ooo",Product.class);
+		query.setParameter("xxx",min);
+		query.setParameter("ooo",max);
+		query.setParameter(1,"上架中");	
+		return query.list();
+	}
+	
+	@Override
+	public List<Product> selectclose(String status) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Product> query = session.createQuery("from Product where  status like ?1",Product.class);
+		query.setParameter(1,"下架中");
+		return query.list();
+	}
+	
 	@Override
 	public List<Product> selectspecies(String species) {
 		Session session=sessionfactory.getCurrentSession();
@@ -93,12 +159,6 @@ public class ProductDao implements IproductDao {
 		return query.list();
 	}
 	
-	public List<Product> selectid(int productID){
-		Session session=sessionfactory.getCurrentSession();
-		Query<Product> query = session.createQuery("from Product where productID like ?1",Product.class);
-		query.setParameter(1,productID);
-		return query.list();
-	}
 
 	@Override
 	public List<Product> selectclass(String classification) {
@@ -167,6 +227,82 @@ public class ProductDao implements IproductDao {
 		return count5;
 	}
 
+	//缺貨
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object countnone(int stock) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Object> query =session.createQuery("select count(*)  from Product where  stock like ?1");
+		query.setParameter(1,0);	
+		Object count7  = query.uniqueResult();
+		return count7;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object countAllOpen() {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Object> query =session.createQuery("select count(*)  from Product where  status like ?1");
+		query.setParameter(1,"上架中");	
+		Object count7  = query.uniqueResult();
+		return count7;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object countbrandOpen(String brand) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Object> query =session.createQuery("select count(*)  from Product where  status=?1 and brand=?2");
+		query.setParameter(1,"上架中");	
+		query.setParameter(2, brand);
+		Object count7  = query.uniqueResult();
+		return count7;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object countspeciesOpen(String species) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Object> query =session.createQuery("select count(*)  from Product where  status=?1 and species=?2");
+		query.setParameter(1,"上架中");	
+		query.setParameter(2, species);
+		Object count7  = query.uniqueResult();
+		return count7;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object countclassOpen(String classification) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Object> query =session.createQuery("select count(*)  from Product where  status=?1 and classification=?2");
+		query.setParameter(1,"上架中");	
+		query.setParameter(2, classification);
+		Object count7  = query.uniqueResult();
+		return count7;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object countwhereOpen(int max, int min) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Object> query =session.createQuery("select count(*) from Product where status=?1 and price between :xxx and :ooo");
+		query.setParameter("xxx",min);
+		query.setParameter("ooo",max);
+		query.setParameter(1,"上架中");	
+		Object count7  = query.uniqueResult();
+		return count7;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object countclose(String status) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Object> query =session.createQuery("select count(*)  from Product where  status like ?1");
+		query.setParameter(1,"下架中");	
+		Object count6  = query.uniqueResult();
+		return count6;
+	}
+
 
 
 	@Override
@@ -180,10 +316,5 @@ public class ProductDao implements IproductDao {
 		
 	}
 	
-	public Product getById(int productID) {
-		Session session=sessionfactory.getCurrentSession();
-		Product product =session.get(Product.class,productID);
-		return product;
-	}
 
 }

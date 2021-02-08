@@ -41,6 +41,7 @@ public class DispatcherServletInitializer  extends AbstractAnnotationConfigDispa
 	  @Override
 		public void onStartup(ServletContext servletContext) throws ServletException {
 			AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+			rootContext.register(WebSocketConfig.class);
 			rootContext.register(SpringMVCJavaConfig.class);
 			rootContext.setServletContext(servletContext);
 			ServletRegistration.Dynamic mvc = servletContext.addServlet("mvc", new DispatcherServlet(rootContext));

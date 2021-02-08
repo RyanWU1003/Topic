@@ -1,6 +1,6 @@
 package tw.iii.controller;
 
-import java.sql.Date;
+//import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -80,8 +80,6 @@ public class RegisterController {
 		mbean.setBirthday(br);
 		mbean.setGender(gender);
 		mbs.insert(mbean);
-		
-		//m.addAttribute("selection","all");
 			
 		return "index.jsp";
 		

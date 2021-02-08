@@ -120,6 +120,7 @@
 			<%-- <%
 			if (!"anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 			%> --%>
+			<a class="nav-link active" aria-current="page" href="select_member"><li>我的帳號</li></a>
 			<a href="logoutPage"><li>登出 </li></a>
 
 			<%
@@ -144,6 +145,10 @@
 				</button></a><br> <a class="btn-action" href="gomap?currpage=0"><button class="btn">
 					地圖查詢<i class="fa fa-angle-double-right"></i>
 				</button></a><br>
+					<a class="btn-action" href="gowebscoket"><button class="btn">
+					客服/聊天<i class="fa fa-angle-double-right"></i>
+				</button></a>
+				<br>
 			<%
 			if ("anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 			%>

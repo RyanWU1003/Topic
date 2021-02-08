@@ -385,33 +385,28 @@ if(account==null||account==""){
                 <a href="gomap?currpage=0"><li>地圖查詢</li></a>
                 <c:choose>
                 <c:when test="<%=status %>">
-                <a href="select_member" id="member"><li> <%= SecurityContextHolder.getContext().getAuthentication().getName() %>	
+                <a href="#" id="member"><li> <%= SecurityContextHolder.getContext().getAuthentication().getName() %>	
                     <ul class="memder-list">
-                        <a href="select_member" id="member"><li>會員專區</li></a>
-                        <li>
-                        <a class="btn-action" href="logoutPage">
-						<button class="btn" id="login">登出</button>
-						</a>
-                        
-                        <%-- <c:url value="/perform_logout" var="logoutUrl" />
+                        <li>會員專區</li>
+                        <li><c:url value="/perform_logout" var="logoutUrl" />
                             <form method="post" action="${logoutUrl}">
                                  <input value="登出" type="submit" id="logout">  
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                             </form> --%>
+                             </form>
                         </li>
                     </ul>
                 </li></a>
                 <a class="showMyCart"><li id="cart-con"><i class="fa fa-shopping-cart" ></i><span class="p-1" id="badge">0</span></li></a>
             	</c:when>
             	<c:otherwise>
+            		<a href="#"><li>
+            		<c:url value="/perform_logoin" var="logoutUrl" />
  						<form method="post" action="${logoutUrl}">
-            		<a href="perform_login"><li>
-            		<c:url value="/perform_login" var="logoutUrl" />
 							<input value="登入" type="submit" id="login">  
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
- 					</li></a>
-                	<a href="register.jsp"><li>註冊</li></a>
  						</form> 
+ 					</li></a>
+                	<a href=""><li>註冊</li></a>
             	</c:otherwise>
             	</c:choose>
             </ul> 

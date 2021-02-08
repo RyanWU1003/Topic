@@ -33,14 +33,15 @@ public class Product {
 	private String descripton;
 	@Column(name = "img")
 	private String img;
+	@Column(name="status")
+	private String status;
 	
 	public Product() {
 		
 	}
 
-	public Product(String productName, int stock, int price, String species, String classification, String brand,
-			String descripton, String img) {
-		super();
+	public  Product(String productName, int stock, int price, String species, String classification, String brand,
+			String descripton, String img,String status) {
 		this.productName = productName;
 		this.stock = stock;
 		this.price = price;
@@ -49,6 +50,21 @@ public class Product {
 		this.brand = brand;
 		this.descripton = descripton;
 		this.img = img;
+		this.status=status;
+	}
+	
+	public Product(String productName, int stock, int price, String species, String classification, String brand,
+			String descripton,String status) {
+		
+		this.productName = productName;
+		this.stock = stock;
+		this.price = price;
+		this.species = species;
+		this.classification = classification;
+		this.brand = brand;
+		this.descripton = descripton;
+		this.status = status;
+		
 	}
 
 	public int getProductID() {
@@ -121,6 +137,14 @@ public class Product {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

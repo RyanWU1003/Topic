@@ -339,7 +339,7 @@ if(account==null||account==""){
                         <a class="btn-action" href="logoutPage">
 						<button class="btn" id="logout">登出</button>
 						</a>
-                        <%-- <c:url value="/perform_logout" var="logoutUrl" />
+                        <<%-- c:url value="/perform_logout" var="logoutUrl" />
                             <form method="post" action="${logoutUrl}">
                                  <input value="登出" type="submit" id="logout">  
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -350,9 +350,9 @@ if(account==null||account==""){
                 <a class="showMyCart"><li id="cart-con"><i class="fa fa-shopping-cart" ></i><span class="p-1" id="badge">0</span></li></a>
             	</c:when>
             	<c:otherwise>
-            		<c:url value="/perform_login" var="logoutUrl" />
+            		<c:url value="/perform_logoin" var="logoutUrl" />
             		<a href="perform_login"><li>
- 						<%-- <form method="post" action="${logoutUrl}">
+<%--  						<form method="post" action="${logoutUrl}">
 							<input value="登入" type="submit" id="login">  
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
  						</form>  --%>

@@ -28,11 +28,10 @@
 	<div id="accordion" class="select-area ">
 			<div class="card">
 				<div class="card-header">
-				  <a class="card-link" data-toggle="collapse" href="#">
-					<form method="post" action="selectAll">
-						<button id="button0" name="option" >檢視全部</button>
-					</form> 
-				  </a>
+				<form action="getAllProduct" method="get">
+				<button id="button0" name="option" type="submit" >檢視全部</button>
+				</form>	
+				  
 				</div>
 
 			<div class="card">
@@ -45,14 +44,8 @@
 				<div class="card-body">
 					<form action="selectSpecies" method="post">
 						<div class="search-con species">
-							<select name="species">
-								<option disabled="true" selected>請選擇</option>
-								<option value="dog">狗</option>
-								<option value="cat">貓</option>
-							</select>
-							<button id="button7" type="submit">
-								送出
-							</button>
+							<a href="selectSpecies?species=狗">狗</a> 
+				<a href="selectSpecies?species=貓">貓</a>
 						</div>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					</form>
@@ -70,16 +63,12 @@
 				<div class="card-body">
 					<form action="selectClass" method="post">
 						<div class="search-con ctg">
-							<select name="classification">
-								<option disabled="true" selected>請選擇</option>
-								<option value="飼料">飼料</option>
-								<option value="罐頭">罐頭</option>
-								<option value="玩具">玩具</option>
-								<option value="用品">用品</option>
-								<option value="美容護理">美容護理</option>
-								<option value="環境清潔">環境清潔</option>
-							</select>
-							<button id="button7" type="submit">送出</button>
+							<a href="selectClass?classification=飼料">飼料</a>
+				<a href="selectClass?classification=罐頭">罐頭</a>
+				<a href="selectClass?classification=玩具">玩具</a>
+				<a href="selectClass?classification=用品">寵物用品</a>
+				<a href="selectClass?classification=美容護理">美容護理</a>
+				<a href="selectClass?classification=環境清潔">環境清潔</a>
 						</div>
 				 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					</form>
@@ -97,18 +86,13 @@
 				<div class="card-body">
 					<form action="selectBrand" method="post">
 						<div class="search-con brand">
-							<select name="brand">
-								<option disabled="true" selected>請選擇</option>
-								<option value="ROYAL法國皇家">ROYAL 法國皇家</option>
-								<option value="BLACKWOOD柏萊富">BLACKWOOD 柏萊富</option>
-								<option value="ORIJEN渴望">ORIJEN 渴望</option>
-								<option value="Toma-pro優格">Toma-pro 優格</option>
-								<option value="Nutram紐頓">Nutram 紐頓</option>
-								<option value="Hills希爾思">Hills 希爾思</option>
-							</select>
-							<button id="button7" type="submit">
-								送出
-							</button>
+							<a href="selectBrand?brand=ROYAL法國皇家">ROYAL法國皇家</a><br>
+				<a href="selectBrand?brand=Hills希爾思">Hills希爾思</a><br>
+				<a href="selectBrand?brand=ORIJEN渴望">ORIJEN渴望</a><br>
+				<a href="selectBrand?brand=BLACKWOOD柏萊富">BLACKWOOD柏萊富</a><br>
+				<a href="selectBrand?brand=Toma-pro優格">Toma-pro優格</a><br>
+				<a href="selectBrand?brand=Nutram紐頓">Nutram紐頓</a>
+							
 						</div>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					</form>
