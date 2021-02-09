@@ -315,6 +315,27 @@ public class ProductDao implements IproductDao {
 		return query.list().isEmpty()?false:true;
 		
 	}
+
+	public Object getByName(String name) {
+		Session session=sessionfactory.getCurrentSession();
+		Query<Object> query =session.createQuery("from Product where  productName =?1");
+		query.setParameter(1, name);
+		Object product=query.uniqueResult();
+		
+		return product;
+	}
+	
+	
+	public void updateStock(Product product) {
+		Session session = sessionfactory.getCurrentSession();
+		Product p =session.get(Product.class, product.getProductID());
+		
+		if(p!=null) {
+			p.setStock(product.getStock());
+			
+			session.save(p);
+		}
+	}
 	
 
 }
