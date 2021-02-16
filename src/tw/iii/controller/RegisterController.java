@@ -79,6 +79,8 @@ public class RegisterController {
 		java.util.Date br = sdf1.parse(birthday);
 		mbean.setBirthday(br);
 		mbean.setGender(gender);
+		mbean.setPdauthority("t");
+		mbean.setFrauthority("t");
 		mbs.insert(mbean);
 			
 		return "index.jsp";

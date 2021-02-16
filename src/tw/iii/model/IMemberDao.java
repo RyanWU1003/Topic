@@ -15,6 +15,7 @@ public interface IMemberDao {
 	public List<Member> selectAll();
 	public Member updatepassword(String Account,String Password);
 	public Member updateAll(String Account,String userName,String email,String phone,String address,String birthday,String gender) throws ParseException;
+	public Member updateAuthority(String Account,String pdauthority,String frauthority);
 	public boolean checkLogin(String Account,String Password);
 	public boolean forgetpwd(String Account,String email);
 	public boolean changepwd(String Password);

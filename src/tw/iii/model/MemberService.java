@@ -59,6 +59,10 @@ public class MemberService {
 		return mDao.updateAll(Account, userName, email, phone, address, birthday, gender);
 	};
 	
+	public Member updateAuthority(String Account,String pdauthority,String frauthority) {
+		return mDao.updateAuthority(Account, pdauthority, frauthority);
+	};
+	
 	public boolean checkLogin(String Account,String Password) {
 		
 		return mDao.checkLogin(Account, Password);

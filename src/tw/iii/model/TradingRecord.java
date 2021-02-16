@@ -23,7 +23,6 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="tradingrecord")
-@Component
 public class TradingRecord {
 	
 	@Id @Column(name="id")
@@ -54,9 +53,6 @@ public class TradingRecord {
 	@Column(name="status")
 	private String status;
 	
-	@Column(name="email")
-	private String email;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="account")
 	@Autowired
@@ -70,7 +66,7 @@ public class TradingRecord {
 	}
 	
 	public TradingRecord( Date date, int total, String account, String recipient, String tel, String address,
-			String remarks, String email , Member member) {
+			String remarks, Member member) {
 		super();
 		
 		this.date = date;
@@ -81,7 +77,6 @@ public class TradingRecord {
 		this.address = address;
 		this.remarks = remarks;
 		this.member = member;
-		this.email = email;
 	}
 
 

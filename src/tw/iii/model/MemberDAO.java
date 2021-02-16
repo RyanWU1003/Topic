@@ -77,7 +77,7 @@ public class MemberDAO implements IMemberDao {
 	@Override
 	public List<Member> selectAll() {
 		Session session = sessionfactory.getCurrentSession();
-		Query<Member> mb=session.createQuery("from Mmember",Member.class);
+		Query<Member> mb=session.createQuery("from Member",Member.class);
 		return mb.list();
 	}
 
@@ -112,6 +112,20 @@ public class MemberDAO implements IMemberDao {
 		}
 		
 		return mbr;
+	}
+	
+	@Override
+	public Member updateAuthority(String Account,String pdauthority,String frauthority) {
+		Session session = sessionfactory.getCurrentSession();
+		Member mbr = session.get(Member.class, Account);
+		if(mbr != null) {
+			mbr.setPdauthority(pdauthority);
+			mbr.setFrauthority(frauthority);
+			
+			session.save(mbr);
+		}
+		return mbr ;
+		
 	}
 
 	@Override

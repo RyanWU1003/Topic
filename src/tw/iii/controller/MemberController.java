@@ -65,6 +65,7 @@ public class MemberController {
 		}
 		mbs.updatepassword(account, newpwd);
 		m.addAttribute("checkpwd",check);
+		m.addAttribute("changsuccess", "更換密碼成功，請重新登入");
 		return "login.jsp";
 		
 	}

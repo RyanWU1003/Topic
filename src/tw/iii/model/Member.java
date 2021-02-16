@@ -1,10 +1,15 @@
 package tw.iii.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,10 +42,22 @@ public class Member {
 	@Column(name = "gender")
 	private String gender;
 	
+	@Column(name = "pdauthority")
+	private String pdauthority;
+	
+	@Column(name = "frauthority")
+	private String frauthority;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "member",cascade = CascadeType.ALL)
+	private Set<TradingRecord> tradingRecord = new HashSet<TradingRecord>(); 
+	
 	public Member() {
 		
 	}
-	public Member(String account,String password,String userName,String email,String phone,String address,Date birthday,String gender) {
+
+	public Member(String account, String password, String userName, String email, String phone, String address,
+			Date birthday, String gender, Set<TradingRecord> tradingRecord) {
+		super();
 		this.account = account;
 		this.password = password;
 		this.userName = userName;
@@ -49,6 +66,7 @@ public class Member {
 		this.address = address;
 		this.birthday = birthday;
 		this.gender = gender;
+		this.tradingRecord = tradingRecord;
 	}
 
 	public String getAccount() {
@@ -113,6 +131,32 @@ public class Member {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	
+	
+	
+	public String getPdauthority() {
+		return pdauthority;
+	}
+
+	public void setPdauthority(String pdauthority) {
+		this.pdauthority = pdauthority;
+	}
+
+	public String getFrauthority() {
+		return frauthority;
+	}
+
+	public void setFrauthority(String frauthority) {
+		this.frauthority = frauthority;
+	}
+
+	public Set<TradingRecord> getTradingRecord() {
+		return tradingRecord;
+	}
+
+	public void setTradingRecord(Set<TradingRecord> tradingRecord) {
+		this.tradingRecord = tradingRecord;
 	}
 
 }
