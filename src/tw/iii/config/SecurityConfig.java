@@ -24,7 +24,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    		  "/getAllProduct","/getProductDetail","/selectSpecies","/selectBrand").permitAll()
           
 	      .antMatchers("/addToCart","/loadMyCart","/goToCart","/member.jsp","/changepwd.jsp","/select_member","CreateEditor.jsp","Editor.jsp","/gocreateeditor").hasAnyRole("USER")
-//			.anyRequest().authenticated()
 			.and()
 			
 		.formLogin()

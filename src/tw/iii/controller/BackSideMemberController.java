@@ -23,11 +23,14 @@ public class BackSideMemberController {
 		m.addAttribute("memberList", mbs.selectAll());
 		return "backSideMember.jsp";
 	}
-	@RequestMapping(path = "/updateAuthority",method = RequestMethod.POST)
+
+	@RequestMapping(path = "/updateauthority",method = RequestMethod.POST)
 	public String updateAuthority(@RequestParam(name = "account") String account,@RequestParam(name = "pdauthority") String pdauthority
 			,@RequestParam(name = "frauthority") String frauthority,Model m) {
+		mb = mbs.selecter(account);
 		mbs.updateAuthority(account, pdauthority, frauthority);
 		m.addAttribute("selection", "all");
+//		m.addAttribute("memberList", mbs.select(account));
 		m.addAttribute("memberList", mbs.selectAll());
 		
 		return "backSideMember.jsp";

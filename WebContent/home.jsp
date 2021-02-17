@@ -142,15 +142,14 @@
 			if (!"anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
 			%>
 			<a class="nav-link active" aria-current="page" href="select_member"><li>我的帳號</li></a>
-			 <a href="logoutPage"><li>登出 </li></a>
-		<%-- 	<a href="perform_logout"><li>登出 <c:url
-						value="/perform_logout" var="logoutUrl" />
-					<form method="post" action="${logoutUrl}">
-						<input type="hidden" value="Logout" type="submit"> <input
-							type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-			</li></a> --%>
+			 <!-- <a href="logoutPage"><li>登出 </li></a> -->
+			 <c:url value="/perform_logout" var="logoutUrl" />
+				<form method="post" action="${logoutUrl}">
+					<div class="nav-link active" aria-current="page">
+					<input value="登出" type="submit" class="logout">
+					</div>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form>
 
 			<%
 			}
@@ -200,23 +199,15 @@
 			<%
 			} else {
 			%>
-			
-				<a class="btn-action" href="logoutPage">
+			<c:url value="/perform_logout" var="logoutUrl" />
+			<form method="post" action="${logoutUrl}">
+				<button class="btn" id="login" type="submit">登出<i class="fa fa-angle-double-right"></i></button>	
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			</form>
+<!-- 				<a class="btn-action" href="logoutPage">
 				<button class="btn" id="login">登出<i class="fa fa-angle-double-right"></i>
 				</button>
-			</a>
-		<%-- 	<a class="btn-action" href="perform_logout">
-				<button class="btn" id="login">
-					<c:url value="/perform_logout" var="logoutUrl" />
-					<form method="post" action="${logoutUrl}">
-						<input type="hidden" value="Logout" type="submit"> <input
-							type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-					登出<i class="fa fa-angle-double-right"></i>
-				</button>
-			</a> --%>
-
+			</a> -->
 			<%
 			}
 			%>

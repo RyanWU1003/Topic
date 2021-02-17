@@ -3,9 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    display: flex;
-    
+.page-wrapper{
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	position: relative;
 }
 /* leftbar */
 li{
@@ -13,7 +15,7 @@ li{
 }
 li a,li a:active,li a:visited{
     text-decoration: none;
-    color: white;
+   /*  color: white; */
 }
 .leftbar{
     width: 280px;
@@ -27,13 +29,14 @@ li a,li a:active,li a:visited{
 
 .leftbar ul{
     width: 100%;
+    margin-top:50%;
 }
-li::before{
+/* li::before{
     content: "";
     display: inline-block;
     vertical-align: middle;
     height: 100%;
-}
+} */
 .leftbar ul li{
     font-size: 30px;
     letter-spacing: 10px;
@@ -52,8 +55,9 @@ li span{
 /* leftbar */
 .member-cont{
     box-sizing: border-box;
-    padding: 20px 50px;
-    width: 60%;
+    padding: 80px 50px;
+    width: 60%; 
+    min-height: 100vh;
 
 }
 .work-area{

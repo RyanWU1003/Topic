@@ -71,6 +71,17 @@ body{
     color: tomato;
 }
 
+.logout{
+	  background-color: Transparent; 
+      border-style: none;     /* 無邊框 */
+      outline: none;      /* 獲得焦點也無邊框 */
+}
+
+.logout:hover{
+	background: white;
+    color: tomato;
+}
+
 .btn i{
     margin-left: 2px;
     color: rgba(31, 190, 84, 0.726);

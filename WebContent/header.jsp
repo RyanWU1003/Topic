@@ -135,16 +135,22 @@
     .wrapper{
         min-height: 150%;
     }
-    #logout,#login{
+    #login{
         outline: none;
         background: none;
         border: none;
         font-weight: 600;
         font-size: 18px;
     }
-    #logout:hover{
+     .logout:hover{
         color: white;
-    }
+    } 
+    
+    .logout{
+	  background-color: Transparent; 
+      border-style: none;     /* 無邊框 */
+      outline: none;      /* 獲得焦點也無邊框 */
+	}
     .mycart{
     	position:fixed;
     	top:110px;
@@ -327,12 +333,12 @@ if(account==null||account==""){
 
         <div class="menu-bar">
             <ul >
-                <a href="goforum?currpage=0"><li>討論專區</li></a>
-                <a href="getAllProduct"><li>寵物用品</li></a>
-                <a href="gomap?currpage=0"><li>地圖查詢</li></a>
+                <a href="goforum?currpage=0" class="headera"><li>討論專區</li></a>
+                <a href="getAllProduct" class="headera"><li>寵物用品</li></a>
+                <a href="gomap?currpage=0" class="headera"><li>地圖查詢</li></a>
                 <c:choose>
                 <c:when test="<%=status %>">
-                <a href="select_member" id="member"><li> <%= SecurityContextHolder.getContext().getAuthentication().getName() %>	
+                <a href="select_member" id="member" class="headera"><li> <%= SecurityContextHolder.getContext().getAuthentication().getName() %>	
                     <ul class="memder-list">
                         <li>會員專區</li>
                         <li>
@@ -360,6 +366,19 @@ if(account==null||account==""){
                 	<a href="${path}/register.jsp"><li>註冊</li></a>
             	</c:otherwise>
             	</c:choose>
+            	<%
+					if (!"anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
+				%>
+            	<li>
+            	<c:url value="/perform_logout" var="logoutUrl" />
+				<form method="post" action="${logoutUrl}">
+					<input value="登出" type="submit" class="logout">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form>
+				</li>
+				<%
+					}
+				%>
             </ul> 
         </div>
         
