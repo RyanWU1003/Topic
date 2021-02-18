@@ -234,14 +234,14 @@ div::-webkit-scrollbar {
 									<td class="genfer" style="text-align: center">${member.gender }</td>
 									
 									<td style="width: 10% ; text-align: center">
-										<input type="radio" id="pdauthority" name="pdauthority" value="t"<c:if test="${member.pdauthority=='t' }">checked="checked"</c:if>  />
+										<input type="radio" id="pdauthority1" name="pdauthority" value="t"<c:if test="${member.pdauthority=='t' }">checked="checked"</c:if>  />
                     					<label >允許</label>
-                    					<input type="radio" id="pdauthority" name="pdauthority" value="f "<c:if test="${member.pdauthority=='f' }">checked="checked"</c:if>  />
+                    					<input type="radio" id="pdauthority" name="pdauthority" value="f"<c:if test="${member.pdauthority=='f' }">checked="checked"</c:if>  />
                     					<label >禁止</label>
                     				</td>
                     					
                     				<td style="width: 10% ; text-align: center">
-                    					<input type="radio" id="frauthority" name="frauthority" value="t "<c:if test="${member.frauthority=='t' }">checked="checked"</c:if>  />
+                    					<input type="radio" id="frauthority1" name="frauthority" value="t"<c:if test="${member.frauthority=='t' }">checked="checked"</c:if>  />
                     					<label >允許</label>
                     					<input type="radio" id="frauthority" name="frauthority" value="f"<c:if test="${member.frauthority=='f' }">checked="checked"</c:if>  />
                     					<label >禁止</label></td>
