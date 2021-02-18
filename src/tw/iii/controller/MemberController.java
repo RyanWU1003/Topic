@@ -137,6 +137,7 @@ public class MemberController {
 		message.setText("你的新密碼為： \n"+pwd+"\n請重新登入後立即更換密碼，保護帳號安全");
 		mailsender.send(message);
 		
+		m.addAttribute("forgetpwd", "已寄送確認信至信箱，請確認後重新登入");
 		return "login.jsp";
 	}
 	

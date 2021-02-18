@@ -140,6 +140,10 @@
             <div id="warning" class="pwdsuccess" style="color: blue;" >${changsuccess }</div>		<!-- rgb(152, 161, 200) -->
             </c:if>
             
+            <c:if test="${forgetpwd!=null}">
+            <div id="warning" class="pwdsuccess" style="color: blue;" >${changsuccess }</div>		<!-- rgb(152, 161, 200) -->
+            </c:if>
+            
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
             <button id="register" class="btn" onclick="location.href='register.jsp'" ><a href="register.jsp">註冊</a></button>		<!-- onclick="self.location.href='http://localhost:8080/SpringMVCWebProject//register.jsp'" -->

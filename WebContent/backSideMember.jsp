@@ -232,8 +232,22 @@ div::-webkit-scrollbar {
 									<td class="address" style="width: 10% ;text-align: center">${member.address }</td>
 									<td class="birthday" style="width: 10% ; text-align: center"><fmt:formatDate value="${member.birthday}" pattern="yyyy-MM-dd"/></td>
 									<td class="genfer" style="text-align: center">${member.gender }</td>
-									<td style="width: 10% ; text-align: center"><input type="text" name="pdauthority" class="pdauthority" style="width: 10%" value="${member.pdauthority }"></td>
-									<td style="width: 10% ; text-align: center"><input type="text" name="frauthority" class="frauthority" style="width: 10%" value="${member.frauthority }"></td>
+									
+									<td style="width: 10% ; text-align: center">
+										<input type="radio" id="pdauthority" name="pdauthority" value="t"<c:if test="${member.pdauthority=='t' }">checked="checked"</c:if>  />
+                    					<label >允許</label>
+                    					<input type="radio" id="pdauthority" name="pdauthority" value="f "<c:if test="${member.pdauthority=='f' }">checked="checked"</c:if>  />
+                    					<label >禁止</label>
+                    				</td>
+                    					
+                    				<td style="width: 10% ; text-align: center">
+                    					<input type="radio" id="frauthority" name="frauthority" value="t "<c:if test="${member.frauthority=='t' }">checked="checked"</c:if>  />
+                    					<label >允許</label>
+                    					<input type="radio" id="frauthority" name="frauthority" value="f"<c:if test="${member.frauthority=='f' }">checked="checked"</c:if>  />
+                    					<label >禁止</label></td>
+									
+									<%-- <td style="width: 10% ; text-align: center"><input type="text" name="pdauthority" class="pdauthority" style="width: 10%" value="${member.pdauthority }"></td>
+									<td style="width: 10% ; text-align: center"><input type="text" name="frauthority" class="frauthority" style="width: 10%" value="${member.frauthority }"></td> --%>
 									<td><input type="submit" value="修改"></td>
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								</tr>
